@@ -15,7 +15,7 @@ files_to_load=(
     "${HOME}/${public_bashrc_dir}/completions/npm_completion.sh"
     "${HOME}/${public_bashrc_dir}/completions/nodejs_completion.sh"
     "${HOME}/${public_bashrc_dir}/completions/git-completion.sh"
-    "${HOME}/${public_bashrc_dir}/completions/ng-completions.sh"
+    # "${HOME}/${public_bashrc_dir}/completions/ng-completions.sh"
     "${HOME}/${public_bashrc_dir}/completions/pip-bash-completion.sh"
     # "${HOME}/${public_bashrc_dir}/completions/python-argcomplete.sh"
     "${HOME}/${public_bashrc_dir}/completions/jupyter-completion.sh.sh"
