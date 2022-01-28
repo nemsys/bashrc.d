@@ -2,17 +2,9 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # custom bashrc, sourced from ~/.bashrc
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
-shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -74,7 +66,7 @@ unset bash_file files_to_load
 
 #add comment to test git move
 # welcome
-TODO_list
+# TODO_list
 
 
 # Get color support for 'less'
@@ -89,9 +81,11 @@ TODO_list
 
 #python:
 if command -v pyenv 1>/dev/null 2>&1; then
- eval "$(pyenv init -)"
- eval "$(pyenv virtualenv-init -)"
+    eval "$(pyenv init --path)"
+    eval "$(pyenv init -)"
+    # eval "$(pyenv virtualenv-init -)"
 fi
+
 
 #pipenv
 # eval "$(pipenv --completion)"

@@ -30,3 +30,8 @@ alias countdownTimer="bash /home/nemsys/projects/courses/.bin/CountdownTimer/cou
 # other
 alias ncal="ncal -Mb"
 alias cal="ncal -Mb"
+
+### git:
+# sort by comotterdate (ASC) and show:
+alias git_branch_sort_committerdate="git branch --sort=committerdate --format='%(committerdate:short) %(refname:short)'"
+
