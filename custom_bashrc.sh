@@ -5,6 +5,8 @@
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
+export PATH="/data/bin:$PATH"
+
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -46,7 +48,7 @@ files_to_load=(
     window_title.sh
     proj_management.sh
     load_completions.sh
-    load_custom_commands.sh
+    # load_custom_commands.sh
     trackpointSetUp.sh
 )
 
@@ -64,30 +66,19 @@ done
 
 unset bash_file files_to_load
 
-#add comment to test git move
-# welcome
-# TODO_list
+### Print TODO or Fortune
+Welcome_and_TODO
 
 
 # Get color support for 'less'
 # export LESS="--RAW-CONTROL-CHARS"
 
-
-# load perlbrew bashrc
-# source ${HOME}/perl5/perlbrew/etc/bashrc
-
-# add $ENV{PERLTIDY} perltidyrc file
-# export PERLTIDY="${HOME}/projects/perl5/.perltidyrc"
-
-#python:
+### inits
+#pyenv:
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init --path)"
     eval "$(pyenv init -)"
     # eval "$(pyenv virtualenv-init -)"
 fi
-
-
-#pipenv
-# eval "$(pipenv --completion)"
 
 

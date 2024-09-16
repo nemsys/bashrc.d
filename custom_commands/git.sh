@@ -59,3 +59,8 @@ change_commit_dates()
 		echo "Ok, no change will be made. Good Bye!"
 	fi
 }
+
+
+function gacp() {
+    git add -A && git commit -a -m "$1" && git push
+}

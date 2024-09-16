@@ -6,8 +6,8 @@ private_bashrc_dir="${public_bashrc_dir}/.private"
 
 files_to_load=(
     #gulp_completions.sh
-    "${HOME}/${public_bashrc_dir}/custom_commands/git.sh"
-    "${HOME}/${public_bashrc_dir}/custom_commands/display_commands.sh"
+    # "${HOME}/${public_bashrc_dir}/custom_commands/git.sh"
+    # "${HOME}/${public_bashrc_dir}/custom_commands/display_commands.sh"
 )
 for bash_file in "${files_to_load[@]}"; do
     # load public files

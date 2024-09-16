@@ -28,7 +28,18 @@ xinput set-button-map 'TPPS/2 Elan TrackPoint' 1 0 3 4 5 6 7
 
 
 # xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Profile Enabled" 1, 0
-# xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" 0.3
+xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" 0.5
 # xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed Default" 1.0
 
 # check settings in /usr/share/libinput/local-overrides.quirks as well
+
+
+
+# xinput list-props "TPPS/2 Elan TrackPoint"
+# sudo xinput set-prop "TPPS/2 Elan TrackPoint" 330 3
+
+
+# xinput get-button-map "TPPS/2 Elan TrackPoint"
+#>>> 1 0 3 4 5 6 7
+
+xinput set-button-map "TPPS/2 Elan TrackPoint" 1 3 3 4 5 6 7

@@ -17,7 +17,7 @@ welcome() {
     ;;
     esac
 }
-TODO_list(){
+Welcome_and_TODO(){
   case $- in
     *i*)    # interactive shell
         echo -e "${LIGHTBLUE}"$(date +"%A [%d.%m.%Y]"), ${LIGHTBLUE}"$(date +"%R")"${NC}
