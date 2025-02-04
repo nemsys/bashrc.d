@@ -3,22 +3,17 @@
 # export DISPLAY=:0
 
 launchProject_ProgressBG-Front-End-Dev(){
-	clear
+	group='23_FE_WE'
 	root_dir='/home/nemsys/projects/courses/ProgressBG/ProgressBG-Front-End-Dev/'
 
+	clear
 	cd $root_dir
 	bash .bin/load_chrome.sh > /dev/null 2>&1
-	# echo "Chrome started: $root_dir"
 
-	# `.bin/vscode_start.sh`
-	# echo 'VScode started'
-
-
-	# go to Labs branch for the given group by week day number
 	cd "${root_dir}/Labs"
-
-	day_name=`date '+%a'`
-	hour=`date '+%H'`
+	### go to Labs branch for the given group by week day number
+	# day_name=`date '+%a'`
+	# hour=`date '+%H'`
 	# echo "${day_name}, ${hour}"
 
 	# clear
@@ -29,7 +24,7 @@ launchProject_ProgressBG-Front-End-Dev(){
 	# else
 	# 	git checkout master
 	# fi
-	git checkout 22_FE_WE
+	git checkout $group
 
 	# display TODO:
 	# clear
@@ -99,18 +94,18 @@ launchProject_ProgressBG-JS-Advanced_React(){
 
 launchProject_ProgressBG-JS-Basics(){
 	### init
-	clear
+	group='2_JS_Basics'
 	root_dir='/home/nemsys/projects/courses/ProgressBG/ProgressBG-JS-Basics/'
+
+	clear
 	cd $root_dir
 
-	# `.bin/load_chrome.sh &> /dev/null 2>&1`
 	bash .bin/load_chrome.sh &> /dev/null 2>&1
 	# echo 'Chrome started'
 
-
 	# go to Labs branch for the given group
 	cd "${root_dir}/Labs"
-	git checkout 1_JS_Basics
+	git checkout $group
 
 	# display TODO:
 	# clear
