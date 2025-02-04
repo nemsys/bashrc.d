@@ -39,7 +39,7 @@ alias ggl='git log --oneline --graph'
 ggac() {
 	if [ -z "$1" ]
 	then
-		echo 'give me a commite message!'
+		echo 'I need commit message!'
 	else
 		git add -A && git commit -m"$1"
 	fi
@@ -47,7 +47,7 @@ ggac() {
 ggacp() {
 	if [ -z "$1" ]
 	then
-		echo 'give me a commite message!'
+		echo 'I need commit message!'
 	else
 		git add -A && git commit -m"$1" && git push
 	fi
