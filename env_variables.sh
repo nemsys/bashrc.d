@@ -30,6 +30,23 @@ export EDITOR="$VISUAL"
 # export SASS_ROOT="/opt/dart-sass"
 # export PATH="$SASS_ROOT:$PATH"
 
+
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Rust:
+. "$HOME/.cargo/env"
+
+
 #others:
 export XDG_DOWNLOAD_DIR="$HOME/Downloads"
 # export ANDROID_HOME=$HOME/Android/Sdk
+
+# Load environment variables from .env if it exists
+if [ -f "$HOME/.env" ]; then
+    export $(cat "$HOME/.env" | xargs)
+fi
+
+

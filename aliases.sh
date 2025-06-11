@@ -18,8 +18,6 @@ alias ave='deactivate &> /dev/null; source ./.venv/bin/activate'
 alias dve='deactivate'
 # alias jn='nohup jupyter notebook &'
 
-# ----------------------------------- mycli ---------------------------------- #
-# alias mycli_root="mycli -u root -p'c1u2r3e4'"
 
 # ---------------------------------- courses --------------------------------- #
 alias cdprogress="cd /home/nemsys/projects/courses/ProgressBG"
@@ -113,6 +111,11 @@ change_commit_dates()
 
 # sort by comitter date (ASC) and show:
 alias git_branch_sort_committerdate="git branch --sort=committerdate --format='%(committerdate:short) %(refname:short)'"
+
+
+# ----------------------------------- VSCode: ----------------------------------- #
+alias code-nemsys='code --user-data-dir ~/.vscode-nemsys'
+# alias code-work='code --user-data-dir ~/.vscode-work'
 
 
 
