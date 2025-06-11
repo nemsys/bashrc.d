@@ -150,7 +150,6 @@ launchProject_ProgressBG-Python-Digitall(){
 	# countdownTimer 10
 }
 
-
 launchProject_ProgressBG-Python(){
 	### init
 	clear
@@ -175,6 +174,27 @@ launchProject_ProgressBG-Python(){
 	fi
 }
 
+launchProject_ProgressBG-Python-Ind(){
+	### init
+	clear
+	root_dir='/home/nemsys/projects/courses/ProgressBG/ProgressBG-Python-Ind/'
+	cd $root_dir
+
+	# `.bin/load_chrome.sh &> /dev/null 2>&1`
+	bash .bin/load_chrome.sh &> /dev/null 2>&1
+	# echo 'Chrome started'
+
+
+	### display TODO:
+	# clear
+	todos=$(tail .TODO)
+
+	if [[ ! -z "$todos" ]] ; then
+		echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+		echo -e ${LIGHTBLUE}"${todos}"${NC}
+		echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	fi
+}
 
 # cd /home/nemsys/projects/courses/ProgressBG/ProgressBG-MLAndGenerativeAI
 launchProject_ProgressBG-MLAndGenerativeAI(){
@@ -279,10 +299,12 @@ launchProject_ProgressBG-MLwithPython(){
 	# . /home/nemsys/projects/courses/.bin/CountdownTimer/countdownTimer.sh
 }
 
+
 launchProject_ML_SA(){
-	clear
+	# clear
 
 	root_dir='/home/nemsys/projects/courses/netIT/ML_SA'
+	echo "@@@@"
 
 	# gnome-terminal --window-with-profile=night --working-directory=$code_path -e 'pipenv shell'
 
@@ -293,6 +315,7 @@ launchProject_ML_SA(){
 	# wmctrl -s 1
 
 	cd $root_dir
+
 	bash .bin/load_chrome.sh > /dev/null 2>&1
 
 	day_name=`date '+%a'`
@@ -304,7 +327,7 @@ launchProject_ML_SA(){
 	cd "${root_dir}/ML_SA_Labs/"
 
 	# display TODO:
-	clear
+	# clear
 
 	if [ -f ".TODO" ]; then
 		todos=$(tail .TODO)
@@ -317,7 +340,11 @@ launchProject_ML_SA(){
 	#source ../.bin/conda_activate.sh
 	#conda activate base
 
-	source .venv/bin/activate
+	if [ -f ".venv/bin/activate" ]; then
+        source .venv/bin/activate
+    else
+        echo "Virtual environment not found. Please create it using 'python3 -m venv .venv'."
+    fi
 
 	# start zoom meating
 	# xdg-open zoommtg://zoom.us/join?action=join
@@ -380,8 +407,6 @@ launchProject_PythonCourseNetIT(){
 	# countdownTimer 10
 	# . /home/nemsys/projects/courses/.bin/CountdownTimer/countdownTimer.sh
 }
-
-
 
 
 # launchProject_ProgressBG-Python-UniCredit(){
