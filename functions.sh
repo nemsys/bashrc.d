@@ -17,6 +17,7 @@ welcome() {
     ;;
     esac
 }
+
 Welcome_and_TODO(){
   case $- in
     *i*)    # interactive shell
@@ -37,39 +38,21 @@ Welcome_and_TODO(){
               echo -e ${LIGHTBLUE}$(fortune -s)${NC}
             fi
         fi
+
+        if [ -f "$HOME/.TODOS" ]; then
+          todos=$(tail ~/.TODOS --lines=3)
+          if [[ ! -z "$todos" ]] ; then
+            echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+            echo -e ${LIGHTBLUE}"${todos}"${NC}
+            echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+          fi
+        fi
         echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     ;;
     *)      # non-interactive shell
     ;;
     esac
-}
-# Some functions to display available colors:
-colors_hash(){
-  declare -A colors
-  colors=(
-    ['BLACK']='\033[0;30m'
-    ['DARKGRAY']='\033[1;30m'
-    ['RED']='\033[0;31m'
-    ['LIGHTRED']='\033[1;31m'
-    ['GREEN']='\033[0;32m'
-    ['LIGHTGREEN']='\033[1;32m'
-    ['BROWN']='\033[0;33m'
-    ['YELLOW']='\033[1;33m'
-    ['BLUE']='\033[0;34m'
-    ['LIGHTBLUE']='\033[1;34m'
-    ['PURPLE']='\033[0;35m'
-    ['LIGHTPURPLE']='\033[1;35m'
-    ['CYAN']='\033[0;36m'
-    ['LIGHTCYAN']='\033[1;36m'
-    ['LIGHTGRAY']='\033[0;37m'
-    ['WHITE']="\033[1;37m"
-    ['NC']="\033[0m"
-  )
-  # usage:
 
-  echo "Colors available for you:"
-  for color in "${!colors[@]}"; do echo -e "${colors["$color"]}$color"; done
-  echo
 }
 
 full_colors(){
@@ -109,5 +92,79 @@ short_pwd() {
 }
 
 
+# ------------------------------------ git ----------------------------------- #
+
+ggac() {
+	if [ -z "$1" ]
+	then
+		echo 'I need commit message!'
+	else
+		git add -A && git commit -m"$1"
+	fi
+}
+ggacp() {
+	if [ -z "$1" ]
+	then
+		echo 'I need commit message!'
+	else
+		git add -A && git commit -m"$1" && git push
+	fi
+}
+change_commit_dates()
+{
+	timestamp_format='%a %b %d %H:%M:%S %Y %z'
+
+	now=$(date +"${timestamp_format}")
+	new_date=${now}
+
+	usage()
+	{
+	    echo "usage: change_commit_date [[[-n ] [-i]] | [-h]]"
+	    echo "-n: use curent datetime"
+	    echo "-e: enter custom datetime (${timestamp_format})"
+	}
+
+	get_cmd_args()
+	{
+		while [ "$1" != "" ]; do
+		    case $1 in
+		        -n | --now )
+		                                new_date=${now}
+		                                ;;
+		        -i | --interactive )    interactive=1
+		                                ;;
+		        -h | --help )           usage
+		                                exit
+		                                ;;
+		        * )                     usage
+		                                exit 1
+		    esac
+		    shift
+		done
+	}
 
 
+	get_user_data()
+	{
+		echo -n "Enter timestamp (${now}): "
+		read response
+
+		if [ -n "$response" ]; then
+		    new_date=$response
+		fi
+	}
+
+
+	get_user_data
+
+	echo "The commit date will be changed to: ${new_date}. Are you sure?[y]:"
+	read continue
+
+
+	if [ "$continue" == "y" ]; then
+		# GIT_COMMITTER_DATE="Mon 20 Aug 2018 20:19:19 BST" git commit --amend --no-edit --date "Mon 20 Aug 2018 20:19:19 BST"
+		GIT_COMMITTER_DATE=\""${new_date}"\" GIT_AUTHOR_DATE=\""${new_date}"\" git commit --amend --no-edit --date \""${new_date}"\"
+	else
+		echo "Ok, no change will be made. Good Bye!"
+	fi
+}

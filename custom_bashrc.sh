@@ -2,10 +2,6 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # custom bashrc, sourced from ~/.bashrc
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
-export PATH="/data/bin:$PATH"
 
 
 # check the window size after each command and, if necessary,
@@ -19,16 +15,6 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
-# if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-#     debian_chroot=$(cat /etc/debian_chroot)
-# fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-# case "$TERM" in
-#     xterm-color|*-256color) color_prompt=yes;;
-# esac
-
 
 ### load custom bash config files
 public_bashrc_dir="$HOME/.bashrc.d"
@@ -37,19 +23,15 @@ private_bashrc_dir="${public_bashrc_dir}/.private"
 
 # list is used to control the load sequence
 files_to_load=(
-    env_variables.sh
-    # shell_settings.sh
-    functions.sh
-    # ssh.sh
-    colors.sh
-    history.sh
-    aliases.sh
-    prompt.sh
-    window_title.sh
-    proj_management.sh
-    load_completions.sh
-    # load_custom_commands.sh
-    trackpointSetUp.sh
+    env_variables.sh       # Environment variable definitions
+    functions.sh           # Utility functions
+    colors.sh              # Color definitions for styling
+    history.sh             # History-related configurations
+    aliases.sh             # Custom aliases
+    prompt.sh              # Prompt customization
+    window_title.sh        # Terminal window title settings
+    proj_management.sh     # Project management scripts
+    load_completions.sh    # Auto-completion scripts    
 )
 
 for bash_file in "${files_to_load[@]}"; do
@@ -66,19 +48,13 @@ done
 
 unset bash_file files_to_load
 
-### Print TODO or Fortune
+# Print TODO or Fortune
 Welcome_and_TODO
 
-
-# Get color support for 'less'
-# export LESS="--RAW-CONTROL-CHARS"
-
-### inits
-#pyenv:
+# Initialize pyenv if available
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init --path)"
     eval "$(pyenv init -)"
-    # eval "$(pyenv virtualenv-init -)"
 fi
 
 
