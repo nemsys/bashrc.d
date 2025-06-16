@@ -9,22 +9,26 @@ _unset_vars() {
   unset branch gprompt stat
 }
 ######################################################################
-# to add git branch name
+# Function to parse Git branch name
 parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/~\1/'
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/~\1/'
 }
 
+# Function to format the prompt
+format_prompt() {
+    local git_branch
+    git_branch=$(parse_git_branch)
+    PS1="\[${LIGHTPURPLE}\]${user}\[${NC}\]@\[${PURPLE_BLUE}\]${host}\[${NC}\]\[${RED}\]${git_branch}\[${NC}\]->"
+}
+
+# Initialize variables
 host=$(hostname -s)
 user=$(whoami)
-
 TERMWIDTH=${COLUMNS}
 
-# PS1="\[${LIGHTPURPLE}\]${user}\[${NC}\]@\[${PURPLE_BLUE}\]${host}\[${NC}\]->"
+# Initialize the prompt
+format_prompt
 
-export PS1="\[${LIGHTPURPLE}\]${user}\[${NC}\]@\[${PURPLE_BLUE}\]${host}\[${NC}\]\[${RED}\]\$(parse_git_branch)\[${NC}\]->"
-# export PS1="\[${LIGHTPURPLE}\]${user}\[${NC}\]@\[${PURPLE_BLUE}\]${host}\[${NC}\]\[${RED}\]\$(parse_git_branch)\[${NC}\]/\$(short_pwd)->"
-
-# export PS1="\u \$(short_pwd) \$ "
-
+# Unset temporary variables
 _unset_vars
 _bash_history_sync
