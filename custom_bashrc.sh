@@ -63,3 +63,6 @@ if command -v direnv 1>/dev/null 2>&1; then
 fi
 
 
+# Add your prompt command right after the direnv hook
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND; }format_prompt"
+

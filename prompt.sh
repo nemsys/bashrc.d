@@ -30,5 +30,5 @@ TERMWIDTH=${COLUMNS}
 format_prompt
 
 # Unset temporary variables
-_unset_vars
+# _unset_vars
 _bash_history_sync
