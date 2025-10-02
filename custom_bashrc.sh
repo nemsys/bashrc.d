@@ -31,7 +31,7 @@ files_to_load=(
     prompt.sh              # Prompt customization
     window_title.sh        # Terminal window title settings
     proj_management.sh     # Project management scripts
-    load_completions.sh    # Auto-completion scripts    
+    load_completions.sh    # Auto-completion scripts
 )
 
 for bash_file in "${files_to_load[@]}"; do
@@ -55,6 +55,11 @@ Welcome_and_TODO
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init --path)"
     eval "$(pyenv init -)"
+fi
+
+# Initialize direnv if available
+if command -v direnv 1>/dev/null 2>&1; then
+    eval "$(direnv hook bash)"
 fi
 
 

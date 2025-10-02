@@ -118,37 +118,6 @@ launchProject_ProgressBG-JS-Basics(){
 	fi
 }
 
-launchProject_ProgressBG-Python-Digitall(){
-	### init
-	clear
-	root_dir='/home/nemsys/projects/courses/ProgressBG/ProgressBG-Python-Digitall/'
-	cd $root_dir
-
-	# `.bin/load_chrome.sh &> /dev/null 2>&1`
-	bash .bin/load_chrome.sh &> /dev/null 2>&1
-	# echo 'Chrome started'
-
-	# go to Labs branch for the given group by week day number
-	cd "${root_dir}/ProgressBG-Python-Digitall-Labs"
-
-	### display TODO:
-	# clear
-	todos=$(tail .TODO)
-
-	if [[ ! -z "$todos" ]] ; then
-		echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-		echo -e ${LIGHTBLUE}"${todos}"${NC}
-		echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	fi
-
-
-	#### start zoom meating
-	# xdg-open zoommtg://zoom.us/join?action=join
-	# xdg-open zoommtg://zoom.us/start?browser=chrome&confno=92667386467&zc=0&stype=1&uname=progressbg.www.courses@gmail.com&uid=ktM_y3H7RsyteCBEerVx6A
-
-	#### start countdownTimer:
-	# countdownTimer 10
-}
 
 launchProject_ProgressBG-Python(){
 	### init
@@ -174,78 +143,6 @@ launchProject_ProgressBG-Python(){
 	fi
 }
 
-launchProject_ProgressBG-Python-Ind(){
-	### init
-	clear
-	root_dir='/home/nemsys/projects/courses/ProgressBG/ProgressBG-Python-Ind/'
-	cd $root_dir
-
-	# `.bin/load_chrome.sh &> /dev/null 2>&1`
-	bash .bin/load_chrome.sh &> /dev/null 2>&1
-	# echo 'Chrome started'
-
-
-	### display TODO:
-	# clear
-	todos=$(tail .TODO)
-
-	if [[ ! -z "$todos" ]] ; then
-		echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-		echo -e ${LIGHTBLUE}"${todos}"${NC}
-		echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	fi
-}
-
-# cd /home/nemsys/projects/courses/ProgressBG/ProgressBG-MLAndGenerativeAI
-launchProject_ProgressBG-MLAndGenerativeAI(){
-	slides_path='/home/nemsys/projects/courses/ProgressBG/ProgressBG-MLAndGenerativeAI/Slides'
-	code_path='/home/nemsys/projects/courses/ProgressBG/ProgressBG-MLAndGenerativeAI/Labs/'
-
-	# # go to workspace 1:
-	# wmctrl -s 1
-	# nemo /home/nemsys/PROGRAMMING_BOOKS/Python/AI/DataScience/MachineLearning &
-	# firefox https://www.google.com/ &
-
-	# sleep 2
-
-	# # go to workspace 0:
-	# wmctrl -s 0
-
-	cd $slides_path
-
-	bash ../.bin/load_chrome.sh
-	echo 'Chrome started'
-
-	# bash .bin/subl_start.sh
-	# echo 'sublime text started'
-
-	# get current git branch
-	branch_name=$(git symbolic-ref -q HEAD)
-	branch_name=${branch_name##refs/heads/}
-	branch_name=${branch_name:-HEAD}
-
-
-	# if [[ $branch_name = "main" ]];then
-	# 	bash ../.bin/live-server.sh
-	# fi
-
-
-	# gnome-terminal --window-with-profile=night --working-directory=$code_path -e 'pipenv shell'
-
-	# if [[ $branch_name = "labs" ]]
-	# then
-	# 	bash .bin/vscode_start.sh
-	# else
-	# 	printf '=%.0s' {1..50}
-	# 	printf '\n~~~>CHANGE TO LABS BRANCH<~~~\n'
-	# 	printf '=%.0s' {1..50}
-	# 	printf '\n'
-	# fi
-
-	# start countdownTimer:
-	# countdownTimer 10
-	# . /home/nemsys/projects/courses/.bin/CountdownTimer/countdownTimer.sh
-}
 
 # cd /home/nemsys/projects/courses/ProgressBG/ProgressBG-MLwithPython/ProgressBG-Python/
 launchProject_ProgressBG-MLwithPython(){
