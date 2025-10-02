@@ -2,7 +2,18 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # custom bashrc, sourced from ~/.bashrc
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+export PYENV_ROOT="$HOME/.pyenv"
 
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="/data/bin:$PATH"
+
+
+#pyenv:
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init --path)"
+    eval "$(pyenv init -)"
+    # eval "$(pyenv virtualenv-init -)"
+fi
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -51,15 +62,10 @@ unset bash_file files_to_load
 # Print TODO or Fortune
 Welcome_and_TODO
 
-# Initialize pyenv if available
-if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init --path)"
-    eval "$(pyenv init -)"
-fi
 
-# Initialize direnv if available
+# Get color support for 'less'
+# export LESS="--RAW-CONTROL-CHARS"
+
 if command -v direnv 1>/dev/null 2>&1; then
     eval "$(direnv hook bash)"
 fi
-
-

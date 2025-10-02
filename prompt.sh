@@ -1,17 +1,15 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Customize terminal prompt                                 									         #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-############################# FUNCTIONS ##############################
-_unset_vars() {
-  unset fillsize cut temp TERMWIDTH pwd_git host user
-  unset conf_dir cprompt
-  unset version rprompt
-  unset branch gprompt stat
-}
-######################################################################
-# Function to parse Git branch name
-parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/~\1/'
+# get the Git branch and status string using official __git_ps1 function.
+get_git_status() {
+    # Check if __git_ps1 function is available
+    if command -v __git_ps1 &> /dev/null; then
+        __git_ps1 "(%s)"
+    else
+        # Fallback to my simpler parser
+        git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+    fi
 }
 
 # Function to format the prompt
@@ -24,11 +22,9 @@ format_prompt() {
 # Initialize variables
 host=$(hostname -s)
 user=$(whoami)
-TERMWIDTH=${COLUMNS}
 
-# Initialize the prompt
-format_prompt
+export PS1="\[${LIGHTPURPLE}\]${user}\[${NC}\]@\[${PURPLE_BLUE}\]${host}\[${NC}\]\[${RED}\]\$(get_git_status)\[${NC}\]->"
+# export PS1="\[${LIGHTPURPLE}\]${user}\[${NC}\]@\[${PURPLE_BLUE}\]${host}\[${NC}\]\[${RED}\]\$(parse_git_branch)\[${NC}\]/\$(short_pwd)->"
 
-# Unset temporary variables
-_unset_vars
+
 _bash_history_sync
