@@ -12,13 +12,6 @@ get_git_status() {
     fi
 }
 
-# Function to format the prompt
-format_prompt() {
-    local git_branch
-    git_branch=$(parse_git_branch)
-    PS1="\[${LIGHTPURPLE}\]${user}\[${NC}\]@\[${PURPLE_BLUE}\]${host}\[${NC}\]\[${RED}\]${git_branch}\[${NC}\]->"
-}
-
 # Initialize variables
 host=$(hostname -s)
 user=$(whoami)
