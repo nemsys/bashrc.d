@@ -66,6 +66,6 @@ Welcome_and_TODO
 # Get color support for 'less'
 # export LESS="--RAW-CONTROL-CHARS"
 
-if command -v direnv 1>/dev/null 2>&1; then
-    eval "$(direnv hook bash)"
-fi
+# if command -v direnv 1>/dev/null 2>&1; then
+#     eval "$(direnv hook bash)"
+# fi
