@@ -15,6 +15,7 @@ alias md='mkdir -v -p'        # make path tree
 # alias qtdesigner='pyqt5-tools designer'
 alias ave='deactivate &> /dev/null; source ./.venv/bin/activate'
 alias dve='deactivate'
+alias ai-ml='source ~/.venvs/ai-ml/bin/activate'
 # alias jn='nohup jupyter notebook &'
 
 
@@ -30,9 +31,14 @@ alias ggl='git log --oneline --graph'
 alias git_branch_sort_committerdate="git branch --sort=committerdate --format='%(committerdate:short) %(refname:short)'"
 
 
-# ----------------------------------- VSCode: ----------------------------------- #
+# ----------------------------------- IDEs: ----------------------------------- #
 alias code-nemsys='code --user-data-dir ~/.vscode-nemsys'
 # alias code-work='code --user-data-dir ~/.vscode-work'
 
+# Antigravity Profile for progressbg.ml.course (Custom)
+alias ag-progressbg.ml.course='HOME="/home/nemsys/Antigravity_Profiles/progressbg.ml.course/app_config" antigravity --user-data-dir="/home/nemsys/Antigravity_Profiles/progressbg.ml.course/browser_profile"'
 
+# Antigravity Profile for phoneiep (Custom)
+alias ag-phoneiep='HOME="/home/nemsys/Antigravity_Profiles/phoneiep/app_config" antigravity --user-data-dir="/home/nemsys/Antigravity_Profiles/phoneiep/browser_profile"'
 
+# XCURSOR_THEME="LyraB-cursors" XCURSOR_PATH="/home/nemsys/.icons:/usr/share/icons" HOME="/home/nemsys/Antigravity_Profiles/phoneiep/app_config" antigravity --user-data-dir="/home/nemsys/Antigravity_Profiles/phoneiep/browser_profile"
