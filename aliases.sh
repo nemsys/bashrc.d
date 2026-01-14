@@ -42,3 +42,9 @@ alias ag-progressbg.ml.course='HOME="/home/nemsys/Antigravity_Profiles/progressb
 alias ag-phoneiep='HOME="/home/nemsys/Antigravity_Profiles/phoneiep/app_config" antigravity --user-data-dir="/home/nemsys/Antigravity_Profiles/phoneiep/browser_profile"'
 
 # XCURSOR_THEME="LyraB-cursors" XCURSOR_PATH="/home/nemsys/.icons:/usr/share/icons" HOME="/home/nemsys/Antigravity_Profiles/phoneiep/app_config" antigravity --user-data-dir="/home/nemsys/Antigravity_Profiles/phoneiep/browser_profile"
+
+
+# ---------------------------------- battery --------------------------------- #
+alias bat-desk='sudo tlp setcharge 40 50'
+alias bat-travel='sudo tlp setcharge 75 80'
+alias bat-full='sudo tlp fullcharge'
