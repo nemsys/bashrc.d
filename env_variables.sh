@@ -9,7 +9,9 @@ export EDITOR="$VISUAL"
 
 
 # Rust environment
-. "$HOME/.cargo/env"          
+if [ -f "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi     
 
 # Default download folder
 export XDG_DOWNLOAD_DIR="$HOME/Downloads"  

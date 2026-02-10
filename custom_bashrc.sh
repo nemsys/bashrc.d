@@ -7,7 +7,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="/data/bin:$PATH"
 
-
 #pyenv:
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init --path)"
@@ -43,6 +42,7 @@ files_to_load=(
     window_title.sh        # Terminal window title settings
     proj_management.sh     # Project management scripts
     load_completions.sh    # Auto-completion scripts
+    ssh.sh                 # SSH-related functions
 )
 
 for bash_file in "${files_to_load[@]}"; do

@@ -48,3 +48,6 @@ alias ag-phoneiep='HOME="/home/nemsys/Antigravity_Profiles/phoneiep/app_config" 
 alias bat-desk='sudo tlp setcharge 40 50'
 alias bat-travel='sudo tlp setcharge 75 80'
 alias bat-full='sudo tlp fullcharge'
+
+# ---------------------------------- misc --------------------------------- #
+alias get_my_public_ip='dig +short txt ch whoami.cloudflare @1.1.1.1'
