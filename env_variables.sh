@@ -5,7 +5,7 @@
 
 # Editor settings
 export VISUAL="code --wait"   
-export EDITOR="$VISUAL"       
+export EDITOR="vi"       
 
 
 # Rust environment
