@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+    #!/usr/bin/env bash
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # custom bashrc, sourced from ~/.bashrc
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -38,6 +38,7 @@ files_to_load=(
     colors.sh              # Color definitions for styling
     history.sh             # History-related configurations
     aliases.sh             # Custom aliases
+    antigravity.sh         # Antigravity-related aliases and functions
     prompt.sh              # Prompt customization
     window_title.sh        # Terminal window title settings
     proj_management.sh     # Project management scripts
