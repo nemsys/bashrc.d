@@ -1,18 +1,23 @@
 #!/bin/bash
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-# Antigravity related aliases and functions                          #
+# Antigravity 2.0 related aliases and functions                          #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
-# Antigravity Profile for progressbg.ml.course (Custom)
-alias ag-progressbg.ml.course='HOME="/home/nemsys/Antigravity_Profiles/progressbg.ml.course/app_config" antigravity --user-data-dir="/home/nemsys/Antigravity_Profiles/progressbg.ml.course/browser_profile"'
+# Profile for progressbg.ml.course (Custom)
+ag-progressbg.ml.course() {
+    export ANTIGRAVITY_CONFIG_DIR="/home/nemsys/Antigravity_Profiles/progressbg.ml.course/app_config"
+    antigravity-ide "$@"
+}
 
-# Antigravity Profile for phoneiep (Custom)
-alias ag-phoneiep='HOME="/home/nemsys/Antigravity_Profiles/phoneiep/app_config" antigravity \
-  --user-data-dir="/home/nemsys/Antigravity_Profiles/phoneiep/browser_profile" \
-  --extensions-dir="/home/nemsys/Antigravity_Profiles/phoneiep/app_config/.antigravity/extensions"'
+# Profile for phoneiep (Custom)
+ag-phoneiep() {
+    export ANTIGRAVITY_CONFIG_DIR="/home/nemsys/Antigravity_Profiles/phoneiep/app_config"
+    antigravity-ide "$@"
+}
 
-# Antigravity Profile for phoneiep with remote debugging enabled
-alias ag-phoneiep-log='HOME="/home/nemsys/Antigravity_Profiles/phoneiep/app_config" antigravity \
-  --user-data-dir="/home/nemsys/Antigravity_Profiles/phoneiep/browser_profile" \
-  --extensions-dir="/home/nemsys/Antigravity_Profiles/phoneiep/app_config/.antigravity/extensions" \
-  --remote-debugging-port=9222'
+# Profile for phoneiep with remote debugging enabled
+ag-phoneiep-log() {
+    export ANTIGRAVITY_CONFIG_DIR="/home/nemsys/Antigravity_Profiles/phoneiep/app_config"
+    # 2.0 passes debugging flags directly through to the underlying electron framework
+    antigravity-ide --remote-debugging-port=9222 "$@"
+}
