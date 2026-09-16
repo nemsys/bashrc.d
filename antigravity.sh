@@ -1,23 +1,20 @@
 #!/bin/bash
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-# Antigravity 2.0 related aliases and functions                          #
+# Antigravity IDE 2.x related aliases and functions                  #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
-# Profile for progressbg.ml.course (Custom)
-ag-progressbg.ml.course() {
-    export ANTIGRAVITY_CONFIG_DIR="/home/nemsys/Antigravity_Profiles/progressbg.ml.course/app_config"
-    antigravity-ide "$@"
-}
+# Antigravity IDE Profile for progressbg.ml.course (Custom)
+alias ag-progressbg.ml.course='HOME="/home/nemsys/Antigravity_Profiles/progressbg.ml.course/app_config" antigravity-ide \
+  --user-data-dir="/home/nemsys/Antigravity_Profiles/progressbg.ml.course/browser_profile" \
+  --extensions-dir="/home/nemsys/Antigravity_Profiles/progressbg.ml.course/app_config/.antigravity-ide/extensions"'
 
-# Profile for phoneiep (Custom)
-ag-phoneiep() {
-    export ANTIGRAVITY_CONFIG_DIR="/home/nemsys/Antigravity_Profiles/phoneiep/app_config"
-    antigravity-ide "$@"
-}
+# Antigravity IDE Profile for phoneiep (Custom)
+alias ag-phoneiep='HOME="/home/nemsys/Antigravity_Profiles/phoneiep/app_config" antigravity-ide \
+  --user-data-dir="/home/nemsys/Antigravity_Profiles/phoneiep/browser_profile" \
+  --extensions-dir="/home/nemsys/Antigravity_Profiles/phoneiep/app_config/.antigravity-ide/extensions"'
 
-# Profile for phoneiep with remote debugging enabled
-ag-phoneiep-log() {
-    export ANTIGRAVITY_CONFIG_DIR="/home/nemsys/Antigravity_Profiles/phoneiep/app_config"
-    # 2.0 passes debugging flags directly through to the underlying electron framework
-    antigravity-ide --remote-debugging-port=9222 "$@"
-}
+# Antigravity IDE Profile for phoneiep with remote debugging enabled (CDP for Antigravity Scribe)
+alias ag-phoneiep-log='HOME="/home/nemsys/Antigravity_Profiles/phoneiep/app_config" antigravity-ide \
+  --user-data-dir="/home/nemsys/Antigravity_Profiles/phoneiep/browser_profile" \
+  --extensions-dir="/home/nemsys/Antigravity_Profiles/phoneiep/app_config/.antigravity-ide/extensions" \
+  --remote-debugging-port=9222'
