@@ -26,6 +26,8 @@ alias cal="ncal -Mb"
 # ----------------------------------- git: ----------------------------------- #
 alias ggs='git status'
 alias ggl='git log --oneline --graph'
+alias ggcleanbranch='git cleanup'
+
 
 # sort by comitter date (ASC) and show:
 alias git_branch_sort_committerdate="git branch --sort=committerdate --format='%(committerdate:short) %(refname:short)'"
@@ -36,6 +38,10 @@ alias code-nemsys='code --user-data-dir ~/.vscode-nemsys'
 # alias code-work='code --user-data-dir ~/.vscode-work'
 
 # XCURSOR_THEME="LyraB-cursors" XCURSOR_PATH="/home/nemsys/.icons:/usr/share/icons" HOME="/home/nemsys/Antigravity_Profiles/phoneiep/app_config" antigravity --user-data-dir="/home/nemsys/Antigravity_Profiles/phoneiep/browser_profile"
+
+# ------------------------------- claude code -------------------------------- #
+# Claude session with Remote Control on — follow it from claude.ai/code or the phone
+alias claude-rc='claude --remote-control'
 
 # ---------------------------------- battery --------------------------------- #
 alias bat-desk='sudo tlp setcharge 40 50'
