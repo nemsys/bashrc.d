@@ -4,7 +4,7 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # ---------------------------------- basics ---------------------------------- #
 alias histfind='history | grep $1'
-alias ls='ls -G  --color=auto'
+alias ls='LC_COLLATE=C ls -G  --color=auto'   # byte-order sort: _foo before letters
 alias ll='ls -lsa  --color=auto'
 alias lr='ls -lsrta  --color=auto'
 alias grep='grep --color=auto'
@@ -26,7 +26,7 @@ alias cal="ncal -Mb"
 # ----------------------------------- git: ----------------------------------- #
 alias ggs='git status'
 alias ggl='git log --oneline --graph'
-alias ggcleanbranch='git cleanup'
+alias ggld='git log --graph --date=short --pretty=format:"%C(auto)%h %cd%d %s"'
 
 
 # sort by comitter date (ASC) and show:
@@ -42,6 +42,7 @@ alias code-nemsys='code --user-data-dir ~/.vscode-nemsys'
 # ------------------------------- claude code -------------------------------- #
 # Claude session with Remote Control on — follow it from claude.ai/code or the phone
 alias claude-rc='claude --remote-control'
+alias claude-rc-dsk='claude-rc --dangerously-skip-permissions'
 
 # ---------------------------------- battery --------------------------------- #
 alias bat-desk='sudo tlp setcharge 40 50'
@@ -53,5 +54,6 @@ alias docker-stop-all='docker stop $(docker ps -q)'
 
 # ---------------------------------- misc --------------------------------- #
 alias get_my_public_ip='dig +short txt ch whoami.cloudflare @1.1.1.1'
+
 # Fix Ghostty/Kitty keyboard protocol being left on by CLI tools (e.g. Claude Code)
 alias fix-kb='printf "\033[>0u"'
